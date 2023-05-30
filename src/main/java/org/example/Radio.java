@@ -1,35 +1,20 @@
 package org.example;
 
-
 public class Radio {
-    private int maxStation;
-    private int minStation = 0;
     private int currentStation;
-    private int minVolume = 0;
-    private int maxVolume = 100;
     private int currentVolume;
-
-    public Radio() {
-        maxStation = 9;
-    }
-
-    public Radio(int numberOfStation) {
-        maxStation = numberOfStation - 1;
-    }
 
     public int getCurrentStation() {
         return currentStation;
     }
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation < minStation) {
+        if (currentStation<0){
             return;
-        }
-        ;
-        if (currentStation > maxStation) {
+        };
+        if (currentStation>9){
             return;
-        }
-        ;
+        };
         this.currentStation = currentStation;
     }
 
@@ -38,44 +23,48 @@ public class Radio {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < minVolume) {
+        if (currentVolume<0){
             return;
         }
-        if (currentVolume > maxVolume) {
+        if (currentVolume>100){
             return;
         }
         this.currentVolume = currentVolume;
     }
 
-    public void nextStation() {
-        if (currentStation < maxStation) {
+    public void nextStation(){
+        if (currentStation <9){
             currentStation++;
-        } else {
-            currentStation = minStation;
+        }
+        else {
+            currentStation =0;
         }
     }
 
-    public void prevStation() {
-        if (currentStation > minStation) {
+    public void prevStation (){
+        if (currentStation>0){
             currentStation--;
-        } else {
-            currentStation = maxStation;
+        }
+        else {currentStation = 9;
         }
     }
-
-    public void nextVolume() {
-        if (currentVolume < maxVolume) {
+    public void nextVolume (){
+        if (currentVolume<100){
             currentVolume++;
-        } else {
-            currentVolume = maxVolume;
+        }
+        else {
+            currentVolume = 100;
         }
     }
-
-    public void prevVolume() {
-        if (currentVolume > minVolume) {
+    public void prevVolume(){
+        if (currentVolume>0){
             currentVolume--;
-        } else {
-            currentVolume = minVolume;
+        }
+        else {
+            currentVolume = 0;
         }
     }
 }
+
+
+
